@@ -19,7 +19,7 @@
       ["app/etc/modules/Ionerednew_AnalogFinder.xml", "app/etc/modules/Ionerednew_AnalogFinder.xml"],
       ["app/design/adminhtml/default/default/layout/ionerednew/analog_finder.xml", "app/design/adminhtml/default/default/layout/ionerednew/analog_finder.xml"],
       ["app/design/frontend/base/default/layout/ionerednew/analog_finder.xml", "app/design/frontend/base/default/layout/ionerednew/analog_finder.xml"],
-      ["app/design/frontend/base/default/template/ionerednew/analog_finder", "app/design/frontend/base/default/template/ionerednew/analog_finder"]
+      ["app/design/frontend/base/default/template/ionerednew/analog_finder/", "app/design/frontend/base/default/template/ionerednew/analog_finder/"]
     ]
   }
 }
