@@ -1,0 +1,45 @@
+<?php
+$_product = $this->getProduct();
+?>
+<div class="product--result">
+    <div class="product__tile col-md-3 col-xs-12 col-sm-6">
+        <li class="product__item item" itemscope itemtype="http://schema.org/product">
+            <div class="wrapper-hover">
+                <a  href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" itemprop="url">
+                    <img  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(270, 270); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" itemprop="image"/>
+                    <?php if ($label = $_product->getAttributeText('label')) : ?>
+                        <div class="product__item-label">
+                            <span><?= $label ?></span>
+                        </div>
+                    <?php endif; ?>
+                </a>
+                <div class="product-shop product__shop-list">
+                    <h3 class="product-name">
+                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" itemprop="name">
+                            <?php $small_getName = strip_tags($this->htmlEscape($_product->getName()));
+                            if (strlen($small_getName) < 50) echo($small_getName);
+                            else { echo mb_substr($small_getName, 0, 40,'UTF-8').'...';} ?>
+                        </a>
+                    </h3>
+                    <div class="desc_grid" itemprop="description"><?php $small_getDescription = strip_tags($_product->getShortDescription());
+                        if (strlen($small_getDescription) < 60) echo($small_getDescription);
+                        else { echo mb_substr($small_getDescription, 0, 60,'UTF-8').'...';} ?></div>
+
+                    <div class="product__item-footer">
+                        <?php echo $this->getPriceHtml($_product, true) ?>
+                        <a href="<?php echo $_product->getProductUrl(); ?>">
+                            <button class="learn-more">
+                                            <span class="circle" aria-hidden="true">
+                                              <span class="icon arrow"></span>
+                                            </span>
+                                <span class="button-text">Подробнее</span>
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </li>
+    </div>
+</div>

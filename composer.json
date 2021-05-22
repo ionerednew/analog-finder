@@ -1,0 +1,25 @@
+{
+  "name": "ionerednew/analog-finder",
+  "type": "magento-module",
+  "license": "OSL-3.0",
+  "description": "Analog finder module for Magento",
+  "authors":[
+    {
+      "name":"Ivan Krasnov",
+      "email":"scenox1010@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "extra": {
+    "map": [
+      ["app/code/community/Ionerednew/AnalogFinder", "app/code/community/Ionerednew/AnalogFinder"],
+      ["app/etc/modules/Ionerednew_AnalogFinder.xml", "app/etc/modules/Ionerednew_AnalogFinder.xml"],
+      ["app/design/adminhtml/default/default/layout/ionerednew/analog_finder.xml", "app/design/adminhtml/default/default/layout/ionerednew/analog_finder.xml"],
+      ["app/design/frontend/base/default/layout/ionerednew/analog_finder.xml", "app/design/frontend/base/default/layout/ionerednew/analog_finder.xml"],
+      ["app/design/frontend/base/default/template/ionerednew/analog_finder", "app/design/frontend/base/default/template/ionerednew/analog_finder"]
+    ]
+  }
+}

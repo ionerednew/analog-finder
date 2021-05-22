@@ -1,0 +1,44 @@
+
+<select class="brand--select">
+    <option value="0"> -- Please choose the brand -- </option>
+<?php foreach ($this->getAvailableBrands() as $brand) : ?>
+    <option value="<?= $brand->getId()?>"><?= $brand->getName() ?></option>
+<?php endforeach; ?>
+</select>
+
+<select class="product--select hidden">
+    <option value="0"> -- Please choose the product -- </option>
+</select>
+
+<button type="submit" class="btn-invert btn-invert_big analog-btn hidden" title="Поиск"><?=$this->__('Search'); ?></button>
+
+<div class="product--result"></div>
+
+<script>
+    jQuery( '.brand--select').change(function() {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?= $this->getUrl('*/*/getProducts') ?>',
+            data: {
+                "brand[id]": jQuery(this).val() ,
+            },
+        }).done(function(response) {
+            jQuery('.product--select').replaceWith(response.content);
+            jQuery('.analog-btn').removeClass('hidden');
+        });
+    });
+</script>
+
+<script>
+    jQuery('.analog-btn').click(function () {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?= $this->getUrl('*/*/getAnalogProduct') ?>',
+            data: {
+                "product[id]": jQuery('.product--select').find(':selected').data('analogId') ,
+            },
+        }).done(function(response) {
+            jQuery('.product--result').replaceWith(response.content);
+        });
+    });
+</script>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <analog_finder_index_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>public/css/analogFinder.css</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="analogFinder/search" template="ionerednew/analog_finder/search.phtml"/>
+        </reference>
+        <reference name="footer_scripts">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>public/analogFinder.js</name>
+            </action>
+        </reference>
+    </analog_finder_index_index>
+
+    <analog_finder_index_getproducts>
+        <block type="core/template" name="products.select" template="ionerednew/analog_finder/products/select.phtml" />
+    </analog_finder_index_getproducts>
+
+    <analog_finder_index_getanalogproduct>
+        <block type="core/template" name="analog.product" template="ionerednew/analog_finder/product.phtml" />
+    </analog_finder_index_getanalogproduct>
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <adminhtml_analog_brand_index>
+        <reference name="content">
+            <block name="analog_brand" type="analogFinder/adminhtml_analog_brand"/>
+        </reference>
+    </adminhtml_analog_brand_index>
+
+    <adminhtml_analog_brand_grid>
+        <remove name="root"/>
+        <block name="analog_brand.grid" type="analogFinder/adminhtml_analog_brand_grid" output="toHtml"/>
+    </adminhtml_analog_brand_grid>
+
+    <adminhtml_analog_brand_edit>
+        <reference name="content">
+            <block name="analog_brand.edit" type="analogFinder/adminhtml_analog_brand_edit"/>
+        </reference>
+    </adminhtml_analog_brand_edit>
+
+    <adminhtml_analog_product_index>
+        <reference name="content">
+            <block name="analog_product" type="analogFinder/adminhtml_analog_product"/>
+        </reference>
+    </adminhtml_analog_product_index>
+
+    <adminhtml_analog_product_grid>
+        <remove name="root"/>
+        <block name="analog_product.grid" type="analogFinder/adminhtml_analog_product_grid" output="toHtml"/>
+    </adminhtml_analog_product_grid>
+
+    <adminhtml_analog_product_edit>
+        <reference name="content">
+            <block name="analog_product.edit" type="analogFinder/adminhtml_analog_product_edit"/>
+        </reference>
+    </adminhtml_analog_product_edit>
+</layout>

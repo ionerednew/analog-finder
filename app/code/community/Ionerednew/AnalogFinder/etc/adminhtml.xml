@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <catalog>
+            <children>
+                <analogs translate="title" module="analogFinder">
+                    <title>Analog Finder</title>
+                    <sort_order>100</sort_order>
+                    <children>
+                        <brand>
+                            <title>Brand</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/analog_brand</action>
+                        </brand>
+                        <product>
+                            <title>Product</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/analog_product</action>
+                        </product>
+                    </children>
+                </analogs>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <analogs translate="title" module="analogFinder">
+                                <title>Analog Finder</title>
+                                <children>
+                                    <brand>
+                                        <title>Brand</title>
+                                    </brand>
+                                    <product>
+                                        <title>Product</title>
+                                    </product>
+                                </children>
+                            </analogs>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
