@@ -59,11 +59,11 @@ class Ionerednew_AnalogFinder_Block_Adminhtml_Analog_Product_Grid extends Mage_A
             'index'   => 'brand_id'
         ]);
 
-        $this->addColumn('analog_product_id', [
-            'header' => $this->__('Analog product id'),
+        $this->addColumn('analog_products_skus', [
+            'header' => $this->__('Analog products skus'),
             'type'   => 'text',
             'align'  => 'right',
-            'index'  => 'analog_product_id'
+            'index'  => 'analog_products_skus'
         ]);
 
         $this->addColumn('is_active', [

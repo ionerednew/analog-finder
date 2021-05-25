@@ -34,9 +34,9 @@ class Ionerednew_AnalogFinder_Block_Adminhtml_Analog_Product_Edit_Form extends M
             'options'  => Mage::getSingleton('analogFinder/system_config_source_brand')->toArray(),
         ]);
 
-        $fieldset->addField('analog_product_id', 'text', [
-            'label'    => $helper->__('Analog product id'),
-            'name'     => 'analog_product_id',
+        $fieldset->addField('analog_products_skus', 'text', [
+            'label'    => $helper->__('Analog products skus'),
+            'name'     => 'analog_products_skus',
             'required' => true,
         ]);
 

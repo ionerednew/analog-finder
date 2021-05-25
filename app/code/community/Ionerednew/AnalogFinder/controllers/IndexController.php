@@ -46,10 +46,9 @@ class Ionerednew_AnalogFinder_IndexController extends Mage_Core_Controller_Front
             /** @var Ionerednew_AnalogFinder_Helper_Data $helper */
             $helper = Mage::helper('analogFinder');
             $product = Mage::getModel('analogFinder/analogProduct')->load($id);
-            $analogProducts = Mage::getModel('catalog/product')->getCollection()
-                ->addFieldToFilter('sku', ['in' => $product->getAnalogProductsSkus()]);
             $this->loadLayout();
-            $content = $this->getLayout()->getBlock('analog.products.list')->setAnalogProducts($analogProducts)->toHtml();
+            $content = $this->getLayout()->getBlock('analog.products.list')
+                ->setAnalogProducts($this->_getAnalogProductsByProduct($product))->toHtml();
             $response->success()->setContent($content);
         } catch (Mage_Core_Exception $e) {
             $response->error()->setMessage($e->getMessage());
@@ -58,5 +57,13 @@ class Ionerednew_AnalogFinder_IndexController extends Mage_Core_Controller_Front
             Mage::logException($e);
         }
         Mage::helper('ajax')->sendResponse($response);
+    }
+
+    private function _getAnalogProductsByProduct($product)
+    {
+        $analogProducts = Mage::getModel('catalog/product')->getCollection()
+            ->addFieldToFilter('sku', ['in' => $product->getAnalogSkus()]);
+        Mage::getSingleton('catalog/layer')->prepareProductCollection($analogProducts);
+        return $analogProducts;
     }
 }

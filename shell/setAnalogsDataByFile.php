@@ -1,6 +1,5 @@
 <?php
 require_once 'abstract.php';
-require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 class Ionerednew_Shell_SetAnalogsDataByFile extends Mage_Shell_Abstract
 {
@@ -39,15 +38,15 @@ class Ionerednew_Shell_SetAnalogsDataByFile extends Mage_Shell_Abstract
             try {
                 $brand = $this->_getBrand($brandName);
                 foreach ($productsData as $productName => $analogProductsData) {
-                    $product = $this->_getProduct($productName, $brand->getName());
+                    $product = $this->_getProduct($productName, $brand->getId());
                     foreach ($analogProductsData as $mode => $analogProductsSkus) {
                         if ($mode == self::ADD_DATA_MODE) {
-                            $currentAnalogProductsSkus = $product->getAnalogProductsSkus();
+                            $currentAnalogProductsSkus = $product->getAnalogSkus();
                             $mergedProductSkus = array_unique(array_merge($currentAnalogProductsSkus, $analogProductsSkus));
-                            $product->setAnalogProductsSkus($mergedProductSkus)->save();
+                            $product->setAnalogSkus($mergedProductSkus)->save();
                             continue;
                         }
-                        $product->setAnalogProductsSkus($analogProductsSkus)->save();
+                        $product->setAnalogSkus($analogProductsSkus)->save();
                     }
                 }
             } catch (Exception $e) {
@@ -94,9 +93,10 @@ class Ionerednew_Shell_SetAnalogsDataByFile extends Mage_Shell_Abstract
         return $this->_getEntity($brand, $brandName, 'brand');
     }
 
-    private function _getProduct(string $productName, string $brandName)
+    private function _getProduct(string $productName, int $brandId)
     {
-        $product = Mage::getModel(self::PRODUCT_MODEL_ALIAS)->loadByNameAndBrand($productName, $brandName);
+        $product = Mage::getModel(self::PRODUCT_MODEL_ALIAS)->loadByNameAndBrandId($productName, $brandId);
+        $product->setBrandId($brandId);
         return $this->_getEntity($product, $productName, 'product');
     }
 

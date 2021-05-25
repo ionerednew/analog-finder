@@ -1,6 +1,8 @@
 <?php
 class Ionerednew_AnalogFinder_Model_AnalogProduct extends Ionerednew_AnalogFinder_Model_AnalogAbstract
 {
+    private $_analogSkus;
+
     /**
      * Constructor
      *
@@ -16,25 +18,26 @@ class Ionerednew_AnalogFinder_Model_AnalogProduct extends Ionerednew_AnalogFinde
      * @param $brand
      * @return Ionerednew_AnalogFinder_Model_AnalogProduct
      */
-    public function loadByNameAndBrand($name, $brand)
+    public function loadByNameAndBrandId($name, $brandId)
     {
         return $this->getCollection()
             ->addFieldToFilter('name', $name)
-            ->addFieldToFilter('brand_id', $brand->getId())
+            ->addFieldToFilter('brand_id', $brandId)
             ->getFirstItem();
     }
 
-    protected function _beforeSave()
+    public function getAnalogSkus()
     {
-        parent::_beforeSave();
-        $this->setData('analog_products_skus', implode(',', $this->getData('analog_products_skus')));
-        return $this;
+        if (!empty($this->_analogSkus)) {
+            return $this->_analogSkus;
+        }
+        return $this->_analogSkus = explode(',', $this->getData('analog_products_skus'));
     }
 
-    protected function _afterLoad()
+    public function setAnalogSkus(array $analogSkus)
     {
-        parent::_afterLoad();
-        $this->setData('analog_products_skus', explode(',', $this->getData('analog_products_skus')));
+        $this->_analogSkus = $analogSkus;
+        $this->setData('analog_products_skus', implode(',', $this->_analogSkus));
         return $this;
     }
 }
