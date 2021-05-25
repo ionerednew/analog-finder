@@ -1,0 +1,3 @@
+<?php foreach ($this->getAnalogProducts() as $product): ?>
+    <?php echo $this->getChild('analog.product')->setProduct($product)->toHtml() ?>
+<?php endforeach; ?>

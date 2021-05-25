@@ -1,6 +1,6 @@
 <select class="product--select">
     <option value="0"> -- Please choose the product -- </option>
     <?php foreach ($this->getAvailableProducts() as $product) : ?>
-        <option data-analog-id="<?= $product->getAnalogProductId() ?>" value="<?= $product->getId()?>"><?= $product->getName() ?></option>
+        <option value="<?= $product->getId()?>"><?= $product->getName() ?></option>
     <?php endforeach; ?>
 </select>

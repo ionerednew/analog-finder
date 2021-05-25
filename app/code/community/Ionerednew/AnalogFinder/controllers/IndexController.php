@@ -45,9 +45,11 @@ class Ionerednew_AnalogFinder_IndexController extends Mage_Core_Controller_Front
         try {
             /** @var Ionerednew_AnalogFinder_Helper_Data $helper */
             $helper = Mage::helper('analogFinder');
-            $product = Mage::getModel('catalog/product')->load($id);
+            $product = Mage::getModel('analogFinder/analogProduct')->load($id);
+            $analogProducts = Mage::getModel('catalog/product')->getCollection()
+                ->addFieldToFilter('sku', ['in' => $product->getAnalogProductsSkus()]);
             $this->loadLayout();
-            $content = $this->getLayout()->getBlock('analog.product')->setProduct($product)->toHtml();
+            $content = $this->getLayout()->getBlock('analog.products.list')->setAnalogProducts($analogProducts)->toHtml();
             $response->success()->setContent($content);
         } catch (Mage_Core_Exception $e) {
             $response->error()->setMessage($e->getMessage());

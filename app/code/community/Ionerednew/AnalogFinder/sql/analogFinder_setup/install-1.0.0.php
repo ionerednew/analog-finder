@@ -45,10 +45,10 @@ try {
         ->addColumn(
             'brand_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, [], 'Brand ID'
         )
-        ->addColumn('analog_product_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, [
+        ->addColumn('analog_products_skus', Varien_Db_Ddl_Table::TYPE_INTEGER, null, [
             'unsigned' => true,
             'nullable' => false
-        ], 'Enabled')
+        ], 'Analog products skus')
         ->addForeignKey(
             $installer->getFkName(
                 'analogFinder/analogProduct',

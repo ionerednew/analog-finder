@@ -35,7 +35,7 @@
             type: 'POST',
             url: '<?= $this->getUrl('*/*/getAnalogProduct') ?>',
             data: {
-                "product[id]": jQuery('.product--select').find(':selected').data('analogId') ,
+                "product[id]": jQuery('.product--select').find(':selected').val() ,
             },
         }).done(function(response) {
             jQuery('.product--result').replaceWith(response.content);

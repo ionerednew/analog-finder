@@ -23,6 +23,8 @@
     </analog_finder_index_getproducts>
 
     <analog_finder_index_getanalogproduct>
-        <block type="core/template" name="analog.product" template="ionerednew/analog_finder/product.phtml" />
+        <block type="core/template" name="analog.products.list" template="ionerednew/analog_finder/products/list.phtml">
+            <block type="core/template" name="analog.product" template="ionerednew/analog_finder/product.phtml"/>
+        </block>
     </analog_finder_index_getanalogproduct>
 </layout>
