@@ -4,6 +4,9 @@
         <Ionerednew_AnalogFinder>
             <active>true</active>
             <codePool>community</codePool>
+            <depends>
+                <Ionerednew_Ajax />
+            </depends>
         </Ionerednew_AnalogFinder>
     </modules>
 </config>
