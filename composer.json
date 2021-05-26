@@ -29,6 +29,5 @@
       ["app/design/frontend/base/default/template/ionerednew/analog_finder/", "app/design/frontend/base/default/template/ionerednew/analog_finder/"],
       ["shell/setAnalogsDataByFile.php", "shell/setAnalogsDataByFile.php"]
     ]
-  },
-  "minimum-stability": "dev"
+  }
 }
