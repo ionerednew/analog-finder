@@ -7,11 +7,6 @@ $_product = $this->getProduct();
             <div class="wrapper-hover">
                 <a  href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image" itemprop="url">
                     <img  src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(270, 270); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" itemprop="image"/>
-                    <?php if ($label = $_product->getAttributeText('label')) : ?>
-                        <div class="product__item-label">
-                            <span><?= $label ?></span>
-                        </div>
-                    <?php endif; ?>
                 </a>
                 <div class="product-shop product__shop-list">
                     <h3 class="product-name">
