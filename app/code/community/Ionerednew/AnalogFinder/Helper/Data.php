@@ -48,7 +48,7 @@ class Ionerednew_AnalogFinder_Helper_Data extends Mage_Core_Helper_Data
     }
 
     /**
-     * get available for shades brand ids
+     * Get available brand ids
      *
      * @return array
      */

@@ -31,7 +31,10 @@ class Ionerednew_AnalogFinder_Model_AnalogProduct extends Ionerednew_AnalogFinde
         if (!empty($this->_analogSkus)) {
             return $this->_analogSkus;
         }
-        return $this->_analogSkus = explode(',', $this->getData('analog_products_skus'));
+        return $this->_analogSkus = array_map(
+            'trim',
+            explode(',', $this->getData('analog_products_skus'))
+        );
     }
 
     public function setAnalogSkus(array $analogSkus)

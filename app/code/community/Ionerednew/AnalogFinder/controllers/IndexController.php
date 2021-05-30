@@ -61,9 +61,8 @@ class Ionerednew_AnalogFinder_IndexController extends Mage_Core_Controller_Front
 
     private function _getAnalogProductsByProduct($product)
     {
-        $analogProducts = Mage::getModel('catalog/product')->getCollection()
-            ->addFieldToFilter('sku', ['in' => $product->getAnalogSkus()]);
-        Mage::getSingleton('catalog/layer')->prepareProductCollection($analogProducts);
-        return $analogProducts;
+        return Mage::getModel('catalog/product')->getCollection()
+            ->addFieldToFilter('sku', ['in' => $product->getAnalogSkus()])
+            ->addAttributeToSelect('*');
     }
 }
